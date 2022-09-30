@@ -1,7 +1,7 @@
 import Button from "react-bootstrap/Button";
 import Link from "next/link";
 
-const HomePage = () => {
+const ResultPage = () => {
   return (
     <>
       <Link href={"/"}>
@@ -15,4 +15,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default ResultPage;
