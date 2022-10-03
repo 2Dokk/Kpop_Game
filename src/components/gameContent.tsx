@@ -7,7 +7,7 @@ const GameContent = ({ props }: { props: gameContentProps }) => {
     <div>
       <div className="background">
         <div className="overlay">
-          <Link href={"/stage/1"}>
+          <Link href={`/stage/${props.counter}`}>
             <a>
               {props.videoInfoArray[1]?.img && (
                 <Image
@@ -17,14 +17,40 @@ const GameContent = ({ props }: { props: gameContentProps }) => {
                   objectFit="cover"
                   objectPosition="center"
                   className="image"
+                  priority
                 />
               )}
             </a>
           </Link>
-          <h3 className="text">{props?.videoInfoArray[1]?.title}</h3>
+          <div className="text">{props?.videoInfoArray[1]?.title}</div>
+          <h3 className="text" id="UpViewCount">
+            {props?.videoInfoArray[1]?.viewCount} 회
+          </h3>
         </div>
       </div>
-      <Link href={"/stage/2"}>2</Link>
+      <div className="background">
+        <div className="overlay">
+          <Link href={`/stage/${props.counter}`}>
+            <a>
+              {props.videoInfoArray[2]?.img && (
+                <Image
+                  src={props?.videoInfoArray[2]?.img}
+                  alt=""
+                  layout="fill"
+                  objectFit="cover"
+                  objectPosition="center"
+                  className="image"
+                  priority
+                />
+              )}
+            </a>
+          </Link>
+          <div className="text">{props?.videoInfoArray[2]?.title}</div>
+          <h3 className="text" id="DownViewCount">
+            {props?.videoInfoArray[2]?.viewCount} 회
+          </h3>
+        </div>
+      </div>
     </div>
   );
 };
