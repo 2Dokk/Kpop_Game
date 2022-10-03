@@ -7,6 +7,7 @@ const nextConfig = {
 const path = require("path");
 
 module.exports = {
+  reactStrictMode: true,
   images: {
     domains: ["i.ytimg.com"],
   },

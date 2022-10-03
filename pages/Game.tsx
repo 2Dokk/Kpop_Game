@@ -1,11 +1,10 @@
 import { NextPage } from "next";
-import HomePage from "../src/components/homePage";
-import GameContent from "../src/components/gameContent";
+import GamePage from "../src/components/gamePage";
 
 const Game: NextPage = () => {
   return (
     <>
-      <GameContent />
+      <GamePage />
     </>
   );
 };
