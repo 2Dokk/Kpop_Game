@@ -8,5 +8,7 @@ interface VideoStorage {
 export interface gameContentProps {
   videoInfoArray: Array<VideoStorage>;
   counter: number;
+  score: number;
   setCounter: Dispatch<SetStateAction<number>>;
+  setScore: Dispatch<SetStateAction<number>>;
 }

@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import Image from "next/image";
 import GameContent from "./gameContent";
 //types
 import { gameContentProps } from "./type";
@@ -8,10 +7,16 @@ const GamePage = () => {
   const axios = require("axios");
   let [videolist, setVideolist] = useState<any[]>([]);
   let [videoInfo, setVideoInfo] = useState<any[]>([]);
+  let [counter, setCounter] = useState(1);
+  let [score, setScore] = useState(0);
+
+  //set apiKey
   let apiKey = "AIzaSyAK6tKgQ24kcRbQ42qNJx_ijzwiPClTrm0";
   //let channelId = "UC0mJTI_l9a5Ugwo1ytAHSAA";
+  //set playList ID
   let playlistID = "PLODMrfwE__J41rFco3nOsCRZm62qETZ_O";
   let videoID: string[] = [];
+
   //Youtube Api
   useEffect(() => {
     axios
@@ -42,6 +47,7 @@ const GamePage = () => {
       })
       .catch(() => {});
   }, [apiKey, axios, videoIDString, videolist]);
+
   //재생목록 속 동영상을 배열에 저장
   interface VideoStorage {
     title: string;
@@ -65,12 +71,15 @@ const GamePage = () => {
       )
     );
   });
-  let [counter, setCounter] = useState(1);
+
   const props: gameContentProps = {
     videoInfoArray: videoArray,
     counter: counter,
     setCounter: setCounter,
+    score: score,
+    setScore: setScore,
   };
+
   return (
     <div>
       <GameContent props={props} />
