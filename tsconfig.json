@@ -16,6 +16,6 @@
     "sourceMap": true,
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages", "src/content/ScoreContext.js"],
   "exclude": ["node_modules"]
 }

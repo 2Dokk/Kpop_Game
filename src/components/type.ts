@@ -7,6 +7,9 @@ interface VideoStorage {
 
 export interface gameContentProps {
   videoInfoArray: Array<VideoStorage>;
+}
+
+export interface ContextInterface {
   counter: number;
   score: number;
   setCounter: Dispatch<SetStateAction<number>>;

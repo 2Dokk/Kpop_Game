@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import type { gameContentProps } from "./type";
-import { randomUUID } from "crypto";
+import { useState } from "react";
 
 const GameContent = ({ props }: { props: gameContentProps }) => {
   function rand(min: number, max: number) {
@@ -13,7 +13,14 @@ const GameContent = ({ props }: { props: gameContentProps }) => {
     <div>
       <div className="background">
         <div className="overlay">
-          <Link href={`/stage/${props.counter}`}>
+          <Link
+            href={
+              props?.videoInfoArray[firstMV]?.viewCount >
+              props?.videoInfoArray[secondMV]?.viewCount
+                ? `/stage/${props.counter}`
+                : `/Result`
+            }
+          >
             <a>
               {props.videoInfoArray[firstMV]?.img && (
                 <Image
@@ -26,6 +33,7 @@ const GameContent = ({ props }: { props: gameContentProps }) => {
                   priority
                   onClick={() => {
                     props.setCounter(props.counter++);
+                    console.log("Update counter");
                   }}
                 />
               )}
@@ -39,11 +47,18 @@ const GameContent = ({ props }: { props: gameContentProps }) => {
       </div>
       <div className="background">
         <div className="overlay">
-          <Link href={`/stage/${props.counter}`}>
+          <Link
+            href={
+              props?.videoInfoArray[secondMV]?.viewCount >
+              props?.videoInfoArray[firstMV]?.viewCount
+                ? `/stage/${props.counter}`
+                : `/Result`
+            }
+          >
             <a>
               {props.videoInfoArray[secondMV]?.img && (
                 <Image
-                  src={props?.videoInfoArray[2]?.img}
+                  src={props?.videoInfoArray[secondMV]?.img}
                   alt=""
                   layout="fill"
                   objectFit="cover"
@@ -52,6 +67,7 @@ const GameContent = ({ props }: { props: gameContentProps }) => {
                   priority
                   onClick={() => {
                     props.setCounter(props.counter++);
+                    console.log("Update counter");
                   }}
                 />
               )}
@@ -62,7 +78,7 @@ const GameContent = ({ props }: { props: gameContentProps }) => {
             {props?.videoInfoArray[secondMV]?.viewCount} 회
           </h3>
           <div className="text" id="Score">
-            {props.score}점
+            {props.counter}점
           </div>
         </div>
       </div>

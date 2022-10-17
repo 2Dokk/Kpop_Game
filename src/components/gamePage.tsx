@@ -7,11 +7,9 @@ const GamePage = () => {
   const axios = require("axios");
   let [videolist, setVideolist] = useState<any[]>([]);
   let [videoInfo, setVideoInfo] = useState<any[]>([]);
-  let [counter, setCounter] = useState(1);
-  let [score, setScore] = useState(0);
 
   //set apiKey
-  let apiKey = "AIzaSyAK6tKgQ24kcRbQ42qNJx_ijzwiPClTrm0";
+  let apiKey = process.env.NEXT_PUBLIC_API_KEY;
   //let channelId = "UC0mJTI_l9a5Ugwo1ytAHSAA";
   //set playList ID
   let playlistID = "PLODMrfwE__J41rFco3nOsCRZm62qETZ_O";
@@ -37,6 +35,7 @@ const GamePage = () => {
   let videoIDString = videoID.join("");
 
   useEffect(() => {
+    console.log(videoIDString);
     axios
       .get(
         `https://www.googleapis.com/youtube/v3/videos?part=snippet,statistics${videoIDString}&maxResults=50&key=${apiKey}`
@@ -74,10 +73,6 @@ const GamePage = () => {
 
   const props: gameContentProps = {
     videoInfoArray: videoArray,
-    counter: counter,
-    setCounter: setCounter,
-    score: score,
-    setScore: setScore,
   };
 
   return (
