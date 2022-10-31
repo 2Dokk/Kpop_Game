@@ -4,7 +4,7 @@ import Link from "next/link";
 const HomePage = () => {
   return (
     <>
-      <Link href={"/Game"}>
+      <Link href={`/stage/${1}`}>
         <div id="startButton">
           <Button variant="warning" size="lg">
             시작하기

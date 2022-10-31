@@ -6,7 +6,7 @@ interface VideoStorage {
 }
 
 export interface gameContentProps {
-  videoInfoArray: Array<VideoStorage>;
+  json: Object;
 }
 
 export interface ContextInterface {

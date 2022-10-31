@@ -7,15 +7,15 @@ const GameContent = ({ props }: { props: gameContentProps }) => {
   function rand(min: number, max: number) {
     return Math.floor(Math.random() * (max - min)) + min;
   }
-  const firstMV: number = rand(0, props.videoInfoArray.length);
-  const secondMV: number = rand(0, props.videoInfoArray.length);
+  const firstMV: number = rand(0, 20);
+  const secondMV: number = rand(0, 20);
   return (
     <div>
       <div className="background">
         <div className="overlay">
           <Link
             href={
-              props?.videoInfoArray[firstMV]?.viewCount >
+              props?[json][firstMV][2] >
               props?.videoInfoArray[secondMV]?.viewCount
                 ? `/stage/${props.counter}`
                 : `/Result`
